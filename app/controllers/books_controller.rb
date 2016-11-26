@@ -18,7 +18,27 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
   
+  def edit
+    @book = Book.find(params[:id])
+  end
+  
+  def update
+    @book = Book.find(params[:id])
+    @book.update(book_params)
+    
+    redirect_to book_path(@book)
+    # redirect_to book_path これでもいけるよ
+    #redirect_to "/items/#{@book.id}" これと意味一緒だけど推奨しないよ
+  end
+  
+  def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+    
+    redirect_to books_path
+  
   private
+  # Strong Prameters
   def book_params
     params.require(:book).permit(:name, :price, :publish, :publish_date)
   end

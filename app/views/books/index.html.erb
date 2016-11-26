@@ -3,3 +3,5 @@
     <li><%= book.name %></li>
     <li><%= link_to book.name, book_path(book)%></li>
 <% end %>
+
+<p><%= link_to "新規追加", new_book_path %></p>
