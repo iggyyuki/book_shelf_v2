@@ -8,3 +8,11 @@
 <hr>
 <%= link_to "編集",edit_book_path(@book) %>
 <%= link_to "削除",book_path(@book), method: :delete %>
+
+<h3>レビュー一覧</h3>
+<% @book.reviews.each do |review| %>
+    <li><%= review.body %></li>
+<% end  %>
+
+<h3>レビュー投稿</h3>
+<%= render partial: "new_review" , locals: { review: Review.new(book_id: @book.id) } %>
