@@ -1,0 +1,15 @@
+<%= form_for @book do |f| %>
+    <div>
+        書籍名：<br><%= f.text_field :name %>
+    </div>
+    <div>
+        価格：<br><%= f.text_field :price %>
+    </div>
+    <div>
+        出版社：<br><%= f.text_field :publish %>
+    </div>
+    <div>
+        刊行日:<br><%= f.text_field :publish_date %>
+    </div>
+    <%= f.submit "追加" %>
+<% end %>
